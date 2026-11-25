@@ -300,7 +300,7 @@ var ICONS = {
 var MENU = [
   {id:'home', t:'Бош саҳифа', i:'home'},
   {g:'sale', t:'Савдо', i:'sale', items:[['pos','Касса (тез сотув)'],['sales','Сотувлар'],['dlv','Доставкалар'],['ret','Қайтаришлар'],['calc','Калькулятор']]},
-  {g:'wh', t:'Омбор', i:'wh', items:[['products','Товарлар'],['stock','Қолдиқ'],['load','Юклаш рўйхати'],['purch','Приход'],['sup','Таъминотчилар'],['pret','Таъминотчига қайтариш'],['transf','Кўчириш'],['inv','Инвентаризация'],['pcs','Бўлаклар'],['order','Буюртма рўйхати']]},
+  {g:'wh', t:'Омбор', i:'wh', items:[['products','Товарлар'],['stock','Қолдиқ'],['load','Юклаш рўйхати'],['purch','Приход'],['sup','Таъминотчилар'],['sobal','Таъминотчи бошланғич қарзи'],['pret','Таъминотчига қайтариш'],['transf','Кўчириш'],['inv','Инвентаризация'],['pcs','Бўлаклар'],['order','Буюртма рўйхати']]},
   {g:'cl', t:'Мижозлар', i:'clients', items:[['clients','Мижозлар'],['debtors','Қарздорлар'],['obal','Бошланғич қарзлар']]},
   {g:'mo', t:'Пул', i:'money', items:[['day','Кун ҳисоботи'],['cash','Касса'],['bank','Банк / Click'],['mflow','Кассалар айланмаси'],['pays','Тўловлар'],['exp','Харажатлар'],['own','Хўжайин пули'],['otk','Откатлар']]},
   {g:'rep', t:'Ҳисобот', i:'pnl', items:[['pnl','Фойда-зарар'],['trend','Ойма-ой'],['mov','Ой ҳаракатлари'],['rexp','Харажатлар таҳлили'],['rprod','Товарлар бўйича'],['pmon','Товарлар ойма-ой'],['pchk','Фойда текшируви'],['rcli','Мижозлар бўйича'],['ract','Мижозлар фаоллиги'],['dhist','Қарз динамикаси'],['cpt','Айланма ва сверка'],['stt','Ходимлар билан ҳисоб'],['rsell','Сотувчилар бўйича'],['assets','Баланс (капитал)'],['turn','Товар айланмаси'],['audit','Амаллар тарихи']]},
@@ -308,7 +308,7 @@ var MENU = [
   {id:'settings', t:'Созламалар', i:'settings'}
 ];
 var TITLES = {home:'Бош саҳифа',pos:'Касса',sales:'Сотувлар',dlv:'Доставкалар',calc:'Калькулятор',ret:'Қайтаришлар',products:'Товарлар',stock:'Қолдиқ',load:'Юклаш рўйхати',sup:'Таъминотчилар',pcs:'Кесилган бўлаклар',order:'Буюртма рўйхати',purch:'Приходлар',pret:'Таъминотчига қайтариш',transf:'Кўчиришлар',inv:'Инвентаризация',
-  clients:'Мижозлар',debtors:'Қарздорлар',pays:'Тўловлар',cash:'Касса',obal:'Бошланғич қарзлар (iBox\'дан ўтказиш)',exp:'Харажатлар',otk:'Откатлар',pnl:'Фойда-зарар',trend:'Ойма-ой солиштириш',mov:'Ойдаги ҳамма ҳаракатлар',rexp:'Харажатлар таҳлили',rcli:'Мижозлар бўйича фойда',bank:'Банк ва Click ҳисоби',own:'Хўжайин пули',assets:'Баланс (капитал)',pmon:'Товар сотуви ойлар бўйича',ract:'Мижозлар фаоллиги',dhist:'Қарз динамикаси (ой охирига)',cpt:'Айланма ва сверка',stt:'Ходимлар билан ҳисоб-китоб',mflow:'Кассалар айланмаси ва пул ҳаракати',pchk:'Товар фойдаси текшируви',day:'Кун ҳисоботи',audit:'Амаллар тарихи',turn:'Товар айланмаси (оборот)',rprod:'Товарлар бўйича фойда',rsell:'Сотувчилар бўйича',salary:'Ойлик',settings:'Созламалар',
+  clients:'Мижозлар',debtors:'Қарздорлар',pays:'Тўловлар',cash:'Касса',obal:'Бошланғич қарзлар (iBox\'дан ўтказиш)',sobal:'Таъминотчиларга бошланғич қарз (iBox\'дан ўтказиш)',exp:'Харажатлар',otk:'Откатлар',pnl:'Фойда-зарар',trend:'Ойма-ой солиштириш',mov:'Ойдаги ҳамма ҳаракатлар',rexp:'Харажатлар таҳлили',rcli:'Мижозлар бўйича фойда',bank:'Банк ва Click ҳисоби',own:'Хўжайин пули',assets:'Баланс (капитал)',pmon:'Товар сотуви ойлар бўйича',ract:'Мижозлар фаоллиги',dhist:'Қарз динамикаси (ой охирига)',cpt:'Айланма ва сверка',stt:'Ходимлар билан ҳисоб-китоб',mflow:'Кассалар айланмаси ва пул ҳаракати',pchk:'Товар фойдаси текшируви',day:'Кун ҳисоботи',audit:'Амаллар тарихи',turn:'Товар айланмаси (оборот)',rprod:'Товарлар бўйича фойда',rsell:'Сотувчилар бўйича',salary:'Ойлик',settings:'Созламалар',
   client:'Мижоз',saleForm:'Янги сотув',purchForm:'Янги приход',transfForm:'Янги кўчириш',retForm:'Қайтариш ёки алмаштириш',pretForm:'Таъминотчига қайтариш'};
 var PARENT = {client:'debtors',saleForm:'sales', purchForm:'purch', transfForm:'transf', retForm:'ret', pretForm:'pret'};
 var ACCESS = {
@@ -347,7 +347,7 @@ function canSell(){ return perm('sell'); }
 function canMoney(){ return perm('pay_in'); }
 function isCash(){ return perm('cash_admin'); }
 var ROLES={admin:'Админ',viewer:'Раҳбар',manager:'Филиал мудири',editor:'Сотувчи',sklad:'Омборчи',buh:'Бухгалтер',cashier:'Кассир'};
-var VIEWREQ={pos:['sell'],saleForm:['sell'],ret:['sell','reports'],retForm:['sell'],sales:['sell','reports','pay_in'],dlv:['sell','stock_in','reports'],load:['sell','stock_in'],
+var VIEWREQ={sobal:['__admin_only'],pos:['sell'],saleForm:['sell'],ret:['sell','reports'],retForm:['sell'],sales:['sell','reports','pay_in'],dlv:['sell','stock_in','reports'],load:['sell','stock_in'],
   purch:['stock_in','reports'],purchForm:['stock_in'],pret:['stock_in'],pretForm:['stock_in'],pcs:['stock_in','sell'],order:['stock_in','reports'],sup:['suppliers'],transf:['stock_move','reports'],transfForm:['stock_move'],inv:['inventory'],turn:['turnover'],
   clients:['sell','pay_in','reports','client_admin'],debtors:['sell','pay_in','reports','client_admin','pay_check'],client:['sell','pay_in','reports','client_admin','pay_check'],obal:['client_admin'],
   pays:['pay_in','pay_check','reports'],exp:['expense','reports'],cash:['cash','cash_admin','reports'],bank:['bank'],otk:['see_otk'],own:['owner'],audit:['audit'],pchk:['reports'],pmon:['reports'],ract:['reports','sell','pay_in'],dhist:['reports','pay_in','client_admin','pay_check'],cpt:['reports','pay_in','client_admin','pay_check','suppliers'],stt:['salary_all'],mflow:['cash_admin','bank','reports'],day:['day_close','cash','reports'],
@@ -439,7 +439,7 @@ function render(){
   var t=TITLES[v]; if(v==='saleForm' && S.form && S.form.editId) t='Сотувни таҳрирлаш №'+S.form.editNo;
   $('vTitle').textContent=t; $('vCrumb').textContent=crumb; $('topActs').innerHTML='';
   var fn={home:vHome,pos:vPos,sales:vSales,ret:vRet,products:vProducts,stock:vStock,purch:vPurch,transf:vTransf,inv:vInv,clients:vClients,debtors:vDebtors,
-    client:vClient,dlv:vDlv,otk:vOtk,load:vLoad,sup:vSup,pcs:vPcs,order:vOrder,turn:vTurn,assets:vAssets,cash:vCash,obal:vObal,bank:vBank,own:vOwn,trend:vTrend,mov:vMov,pchk:vPchk,pmon:vPmon,ract:vRact,dhist:vDhist,cpt:vCpt,stt:vStt,mflow:vMflow,audit:vAudit,day:vDay,rexp:vRexp,rcli:vRcli,calc:vCalc,pays:vPays,exp:vExp,pnl:vPnl,rprod:vRprod,rsell:vRsell,salary:vSalary,settings:vSettings,saleForm:vSaleForm,purchForm:vPurchForm,transfForm:vTransfForm,retForm:vRetForm,pret:vPret,pretForm:vPretForm}[v];
+    client:vClient,dlv:vDlv,otk:vOtk,load:vLoad,sup:vSup,pcs:vPcs,order:vOrder,turn:vTurn,assets:vAssets,cash:vCash,obal:vObal,sobal:vSobal,bank:vBank,own:vOwn,trend:vTrend,mov:vMov,pchk:vPchk,pmon:vPmon,ract:vRact,dhist:vDhist,cpt:vCpt,stt:vStt,mflow:vMflow,audit:vAudit,day:vDay,rexp:vRexp,rcli:vRcli,calc:vCalc,pays:vPays,exp:vExp,pnl:vPnl,rprod:vRprod,rsell:vRsell,salary:vSalary,settings:vSettings,saleForm:vSaleForm,purchForm:vPurchForm,transfForm:vTransfForm,retForm:vRetForm,pret:vPret,pretForm:vPretForm}[v];
   fn(); drawTabs();
 }
 var TABSR={admin:[['home','Бош','home'],['pos','Касса','pos'],['sales','Сотувлар','sale'],['debtors','Қарздорлар','clients'],['_menu','Меню','menu']],
@@ -1609,7 +1609,7 @@ function vSup(){
     $('view').querySelectorAll('[data-s]').forEach(function(tr){ tr.onclick=function(){ supDrawer(list[+tr.dataset.s].name); }; });
   }).catch(failView);
 }
-var SEVT={purch:'Приход',pret:'Қайтариш',spay:'Тўлов'};
+var SEVT={purch:'Приход',pret:'Қайтариш',spay:'Тўлов',sobal:'Бошланғич қарз'};
 function supDrawer(name){
   openDrawer(drawerHead(esc(name),'Юкланмоқда…')+'<div class="db"></div>', function(d){ d.querySelector('[data-close]').onclick=closeDrawer; });
   api('supplierHistory', S.token, name).then(function(H){
@@ -1898,6 +1898,26 @@ function vObal(){
   prev();
   loadList('obal', '2000-01-01', today()).then(function(list){ if(!$('obL')) return; $('obL').className=''; $('obL').innerHTML=list.length?'<div class="tbl"><table class="jt"><thead><tr><th>№</th><th>Сана</th><th>Мижоз</th><th class="n">Сумма</th><th>Изоҳ</th><th></th></tr></thead><tbody>'+list.map(function(x){ return '<tr class="'+(x.void?'void':'')+'"><td>'+noCell(x)+'</td><td>'+dLabel(x.date)+'</td><td>'+esc(x.clientName)+'</td><td class="n">'+fmt(x.amount)+'</td><td class="mut sm">'+esc(x.note)+'</td><td>'+(x.void?'':'<button class="btn sm danger" type="button" data-ov="'+esc(x.id)+'">Бекор</button>')+'</td></tr>'; }).join('')+'</tbody></table></div>':'<div class="empty">Ҳали киритилмаган.</div>';
     $('obL').querySelectorAll('[data-ov]').forEach(function(b){ b.onclick=function(){ if(!armed(b)) return; b.disabled=true; api('voidOpeningDebt', S.token, b.dataset.ov).then(function(){ toast('Бекор қилинди'); invalidate(); return refreshBoot(); }).then(vObal).catch(function(e){ b.disabled=false; toast(errText(e),true); }); }; }); }).catch(function(){});
+}
+function vSobal(){
+  if(!isAdmin()){ setView('<div class="card empty">Бу бўлим фақат админ учун.</div>'); return; }
+  var O=S.sbf||(S.sbf={text:'', date:today(), branch:defBranch()==='all'?'f1':defBranch(), cur:'UZS', rate:S.usd||''});
+  topActs('', null);
+  var parse=function(){ return O.text.split(/\r?\n/).map(function(l){ var c=l.split('\t'); if(c.length<2) c=l.split(/;|\s{2,}/); var name=(c[0]||'').trim(), a=String(c[1]||'').replace(/\s| /g,'').replace(',','.'), v=parseFloat(a.replace(/[^\d.\-−]/g,'').replace('−','-')); if(!name||isNaN(v)||!v) return null; return {name:name, amount:O.cur==='USD'?Math.round(v*100)/100:Math.round(v)}; }).filter(Boolean); };
+  var h='<div class="card"><h2>Таъминотчиларга қарзимизни ўтказиш</h2><div class="mut sm" style="margin-bottom:10px">iBox\'да таъминотчилар (поставщиклар) қарзи ҳисоботини Excel\'га юклаб олинг. Икки устунни нусхалаб, пастга қўйинг: <b>Таъминотчи · Қарзимиз</b>. Сўмдаги ва доллардаги қарзни алоҳида-алоҳида киритинг. Минус сумма — таъминотчига олдиндан тўлаганмиз. Бу ёзув фойда-зарарга, кассага ва омборга таъсир қилмайди.</div>';
+  h+='<div class="grid-f"><label class="f">Қарз қайси санага<input class="inp" type="date" id="sbD" value="'+O.date+'"></label><label class="f">Филиал<select class="inp" id="sbB">'+branchOpts(O.branch,['f1','f2'])+'</select></label><label class="f">Валюта<select class="inp" id="sbC"><option value="UZS"'+(O.cur==='UZS'?' selected':'')+'>Сўм</option><option value="USD"'+(O.cur==='USD'?' selected':'')+'>Доллар</option></select></label>'+(O.cur==='USD'?'<label class="f">Шу қарз олинган курс<input class="inp money" id="sbR" value="'+(O.rate?fmt(O.rate):'')+'"></label>':'')+'</div>';
+  h+='<textarea class="inp" id="sbT" rows="8" style="width:100%;margin-top:12px;font-family:monospace" placeholder="Excel\'дан нусхалаб шу ерга қўйинг (Ctrl+V)">'+esc(O.text)+'</textarea><div id="sbP" style="margin-top:12px"></div></div>';
+  h+='<div class="card flush"><div class="toolbar"><b>Киритилган бошланғич қарзлар</b></div><div id="sbL" class="empty">Юкланмоқда…</div></div>';
+  setView(h);
+  var cf=function(v){ return O.cur==='USD'?fu(v)+' $':fmt(v); };
+  var prev=function(){ var rows=parse(), t=0; rows.forEach(function(r){ t+=r.amount; });
+    $('sbP').innerHTML=rows.length?'<div class="tbl" style="max-height:320px;overflow:auto"><table class="jt"><thead><tr><th>Таъминотчи</th><th class="n">Қарзимиз</th></tr></thead><tbody>'+rows.map(function(r){ return '<tr><td><b>'+esc(r.name)+'</b></td><td class="n '+(r.amount<0?'pos':'neg')+'">'+cf(r.amount)+'</td></tr>'; }).join('')+'</tbody><tfoot><tr><td>'+rows.length+' та</td><td class="n">'+cf(t)+'</td></tr></tfoot></table></div><button class="btn pri" type="button" id="sbS" style="margin-top:12px">'+rows.length+' та қарзни сақлаш</button>':'<div class="mut sm">Рўйхат қўйилгач, шу ерда текшириш учун жадвал чиқади.</div>';
+    if($('sbS')) $('sbS').onclick=function(){ var b=this; if(!armed(b)) return; busy(b,true); api('addSupplierOpening', S.token, {date:O.date, branch:O.branch, cur:O.cur, rate:O.rate, rows:rows}).then(function(r){ toast(r.n+' та қарз киритилди: '+(r.cur==='USD'?fu(r.sum)+' $':fmt(r.sum))); S.sbf=null; invalidate(); }).then(vSobal).catch(function(e){ busy(b,false); toast(errText(e),true); }); }; };
+  $('sbT').oninput=function(){ O.text=this.value; prev(); }; $('sbD').onchange=function(){ O.date=this.value; }; $('sbB').onchange=function(){ O.branch=this.value; };
+  $('sbC').onchange=function(){ O.cur=this.value; vSobal(); }; if($('sbR')) $('sbR').oninput=function(){ O.rate=pm(this.value); };
+  prev();
+  loadList('sobal', '2000-01-01', today()).then(function(list){ if(!$('sbL')) return; $('sbL').className=''; $('sbL').innerHTML=list.length?'<div class="tbl"><table class="jt"><thead><tr><th>№</th><th>Сана</th><th>Филиал</th><th>Таъминотчи</th><th class="n">Сумма</th><th>Изоҳ</th><th></th></tr></thead><tbody>'+list.map(function(x){ return '<tr class="'+(x.void?'void':'')+'"><td>'+noCell(x)+'</td><td>'+dLabel(x.date)+'</td><td>'+BR[x.branch]+'</td><td>'+esc(x.supplier)+'</td><td class="n">'+(x.cur==='USD'?fu(x.amount)+' $':fmt(x.amount))+'</td><td class="mut sm">'+esc(x.note)+'</td><td>'+(x.void?'':'<button class="btn sm danger" type="button" data-sv="'+esc(x.id)+'">Бекор</button>')+'</td></tr>'; }).join('')+'</tbody></table></div>':'<div class="empty">Ҳали киритилмаган.</div>';
+    $('sbL').querySelectorAll('[data-sv]').forEach(function(b){ b.onclick=function(){ if(!armed(b)) return; b.disabled=true; api('voidSupplierOpening', S.token, b.dataset.sv).then(function(){ toast('Бекор қилинди'); invalidate(); }).then(vSobal).catch(function(e){ b.disabled=false; toast(errText(e),true); }); }; }); }).catch(function(){});
 }
 function vTurn(){
   topActs(monthPicker(), function(){ bindMonth(vTurn); }); loadingView();
