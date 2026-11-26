@@ -1482,11 +1482,11 @@ function vProducts(){
   $('jt').onclick=function(e){ var pg=e.target.closest('[data-pg]'); if(pg){ st.page=+pg.dataset.pg; draw(); return; } var tr=e.target.closest('tr[data-code]'); if(tr) productDrawer(tr.dataset.code); };
   draw();
 }
-function productDrawer(code){
-  var adm=isAdmin(), p = code ? S.pmap[code] : {code:'',name:'',group:'',unit:'м',unit2:'',k2:'',price:'',price2:'',min:'',active:'ҳа'}, isNew=!code;
+function productDrawer(code, editMode){
+  var canEd=isAdmin()||perm('products'), adm=canEd&&(!code||editMode), p = code ? S.pmap[code] : {code:'',name:'',group:'',unit:'м',unit2:'',k2:'',price:'',price2:'',min:'',active:'ҳа'}, isNew=!code;
   var groups={}; S.products.forEach(function(x){ if(x.group) groups[x.group]=1; });
   var h=drawerHead(isNew?'Янги товар':esc(p.name), isNew?'':'Код: '+esc(p.code))+'<div class="db">';
-  if(!isNew){ var s1=stockOf(p.code,'f1'), s2=stockOf(p.code,'f2'); h+='<div class="meta"><div><span>1-филиал қолдиқ</span><b>'+qtyText(p,s1.qty)+'</b></div><div><span>2-филиал қолдиқ</span><b>'+qtyText(p,s2.qty)+'</b></div>'+(adm?'<div><span>Ўртача таннарх</span><b>'+(s1.avg||s2.avg?fmt(s1.avg||s2.avg)+' / '+esc(p.unit):'—')+'</b></div>':'')+'</div>'; }
+  if(!isNew){ var s1=stockOf(p.code,'f1'), s2=stockOf(p.code,'f2'); h+='<div class="meta"><div><span>1-филиал қолдиқ</span><b>'+qtyText(p,s1.qty)+'</b></div><div><span>2-филиал қолдиқ</span><b>'+qtyText(p,s2.qty)+'</b></div>'+((canEd||perm('see_cost'))?'<div><span>Ўртача таннарх</span><b>'+(s1.avg||s2.avg?fmt(s1.avg||s2.avg)+' / '+esc(p.unit):'—')+'</b></div>':'')+'</div>'; }
   if(adm){
     h+='<div class="grid-f">';
     h+='<label class="f">Код<input class="inp" id="pfCode" value="'+esc(p.code)+'"'+(isNew?'':' disabled')+'></label>';
@@ -1500,9 +1500,10 @@ function productDrawer(code){
     h+='<label class="f">Минимал қолдиқ (асосий)<input class="inp qty" id="pfMin" value="'+esc(p.min)+'"></label>';
     h+='<label class="f">Ҳолати<select class="inp" id="pfAct"><option value="ҳа"'+(p.active!=='йўқ'?' selected':'')+'>Сотувда</option><option value="йўқ"'+(p.active==='йўқ'?' selected':'')+'>Ёпилган</option></select></label>';
     h+='</div><div class="mut sm">Мисол: арматура 12 мм — асосий ўлчов «м», 2-ўлчов «т», 1 т = 1126 м. Қолдиқ метрда юради, приходни тоннада, сотувни метр ёки тоннада киритасиз.</div>';
-    h+='<div class="ctrl"><button class="btn pri" id="pfSave" type="button">Сақлаш</button><button class="btn" type="button" data-close>Бекор қилиш</button></div>';
+    h+='<div class="ctrl"><button class="btn pri" id="pfSave" type="button">Сақлаш</button>'+(isNew?'<button class="btn" type="button" data-close>Бекор қилиш</button>':'<button class="btn" type="button" id="pfBack">Бекор қилиш</button>')+'</div>';
   } else {
-    h+='<div class="meta"><div><span>Гуруҳ</span><b>'+esc(p.group||'—')+'</b></div><div><span>Сотув нархи</span><b>'+(p.price?fmt(p.price)+' / '+esc(p.unit):'—')+'</b></div>'+(p.unit2?'<div><span>'+esc(p.unit2)+' нархи</span><b>'+(p.price2?fmt(p.price2):'—')+'</b></div>':'')+'</div>';
+    h+='<div class="meta"><div><span>Гуруҳ</span><b>'+esc(p.group||'—')+'</b></div><div><span>Сотув нархи</span><b>'+(p.price?fmt(p.price)+' / '+esc(p.unit):'—')+'</b></div>'+(p.unit2?'<div><span>'+esc(p.unit2)+' нархи</span><b>'+(p.price2?fmt(p.price2):'—')+'</b></div><div><span>1 '+esc(p.unit2)+'</span><b>'+esc(p.k2||'—')+' '+esc(p.unit)+'</b></div>':'')+(p.min?'<div><span>Минимал қолдиқ</span><b>'+esc(p.min)+' '+esc(p.unit)+'</b></div>':'')+(p.active==='йўқ'?'<div><span>Ҳолати</span><b class="neg">Ёпилган</b></div>':'')+'</div>';
+    if(canEd) h+='<div class="ctrl" style="margin:4px 0 14px"><button class="btn pri" type="button" id="pfEdit">'+ib('edit','Таҳрирлаш')+'</button></div>';
   }
   if(!isNew && (adm||perm('see_cost'))) h+='<h3 style="font-size:14px">Охирги приходлар</h3><div id="plast" class="mut sm">Юкланмоқда…</div>';
   if(!isNew) h+='<h3 style="font-size:14px">Ҳаракат тарихи</h3><div id="phist" class="mut sm">Юкланмоқда…</div>';
@@ -1519,6 +1520,8 @@ function productDrawer(code){
     if($('pfPrice')) $('pfPrice').addEventListener('input', function(){ mk(); });
     if(!isNew) api('productHistory', S.token, p.code).then(function(ev){ var el=$('phist'); if(!el) return; var K={purch:'Приход',pret:'Таъминотчига қайтди',sale:'Сотув',ret:'Мижоздан қайтди',tout:'Кўчирилди →',tin:'Кўчиб келди ←',inv:'Инвентаризация',open:'Бошланғич қолдиқ'};
       el.className=''; el.innerHTML=ev.length?'<div class="tbl"><table><thead><tr><th>Сана</th><th>Ҳужжат</th><th class="n">Кирди</th><th class="n">Чиқди</th><th class="n">Қолдиқ</th></tr></thead><tbody>'+ev.slice().reverse().slice(0,150).map(function(e){ return '<tr><td>'+dLabel(e.date)+'<div class="mut sm">'+BR[e.branch]+'</div></td><td>'+K[e.kind]+' №'+esc(e.no)+'<div class="mut sm">'+esc(e.party)+'</div></td><td class="n pos">'+(e.qb>0?fq(Math.round(e.qb*1000)/1000):'')+'</td><td class="n neg">'+(e.qb<0?fq(Math.round(-e.qb*1000)/1000):'')+'</td><td class="n"><b>'+fq(e.bal)+'</b></td></tr>'; }).join('')+'</tbody></table></div><div class="mut sm">Миқдорлар асосий ўлчовда ('+esc(p.unit)+'), қолдиқ ҳар филиал бўйича.</div>':'Ҳаракат йўқ.'; }).catch(function(){});
+    if($('pfEdit')) $('pfEdit').onclick=function(){ productDrawer(p.code, true); };
+    if($('pfBack')) $('pfBack').onclick=function(){ productDrawer(p.code); };
     if(!adm) return;
     d.querySelectorAll('#pfPrice,#pfPrice2').forEach(function(el){ el.oninput=function(){ var v=pm(el.value); el.value=el.value.trim()?fmt(v):''; }; });
     $('pfSave').onclick=function(){ var b=this;
