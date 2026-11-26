@@ -300,15 +300,15 @@ var ICONS = {
 var MENU = [
   {id:'home', t:'Бош саҳифа', i:'home'},
   {g:'sale', t:'Савдо', i:'sale', items:[['pos','Касса (тез сотув)'],['sales','Сотувлар'],['dlv','Доставкалар'],['ret','Қайтаришлар'],['calc','Калькулятор']]},
-  {g:'wh', t:'Омбор', i:'wh', items:[['products','Товарлар'],['stock','Қолдиқ'],['load','Юклаш рўйхати'],['purch','Приход'],['sup','Таъминотчилар'],['sobal','Таъминотчи бошланғич қарзи'],['pret','Таъминотчига қайтариш'],['transf','Кўчириш'],['inv','Инвентаризация'],['pcs','Бўлаклар'],['order','Буюртма рўйхати']]},
-  {g:'cl', t:'Мижозлар', i:'clients', items:[['clients','Мижозлар'],['debtors','Қарздорлар'],['obal','Бошланғич қарзлар']]},
+  {g:'wh', t:'Омбор', i:'wh', items:[['products','Товарлар'],['stock','Қолдиқ'],['sage','Узоқ ётган товар'],['load','Юклаш рўйхати'],['purch','Приход'],['sup','Таъминотчилар'],['sobal','Таъминотчи бошланғич қарзи'],['pret','Таъминотчига қайтариш'],['transf','Кўчириш'],['inv','Инвентаризация'],['pcs','Бўлаклар'],['order','Буюртма рўйхати']]},
+  {g:'cl', t:'Мижозлар', i:'clients', items:[['clients','Мижозлар'],['debtors','Қарздорлар'],['dage','Қарз ёши'],['obal','Бошланғич қарзлар']]},
   {g:'mo', t:'Пул', i:'money', items:[['day','Кун ҳисоботи'],['cash','Касса'],['bank','Банк / Click'],['mflow','Кассалар айланмаси'],['pays','Тўловлар'],['exp','Харажатлар'],['own','Хўжайин пули'],['otk','Откатлар'],['zach','Ўзаро ҳисоб']]},
   {g:'rep', t:'Ҳисобот', i:'pnl', items:[['pnl','Фойда-зарар'],['trend','Ойма-ой'],['mov','Ой ҳаракатлари'],['rexp','Харажатлар таҳлили'],['rprod','Товарлар бўйича'],['pmon','Товарлар ойма-ой'],['pchk','Фойда текшируви'],['rcli','Мижозлар бўйича'],['ract','Мижозлар фаоллиги'],['dhist','Қарз динамикаси'],['cpt','Айланма ва сверка'],['stt','Ходимлар билан ҳисоб'],['rsell','Сотувчилар бўйича'],['assets','Баланс (капитал)'],['turn','Товар айланмаси'],['audit','Амаллар тарихи']]},
   {id:'salary', t:'Ойлик', i:'salary'},
   {id:'settings', t:'Созламалар', i:'settings'}
 ];
 var TITLES = {home:'Бош саҳифа',pos:'Касса',sales:'Сотувлар',dlv:'Доставкалар',calc:'Калькулятор',ret:'Қайтаришлар',products:'Товарлар',stock:'Қолдиқ',load:'Юклаш рўйхати',sup:'Таъминотчилар',pcs:'Кесилган бўлаклар',order:'Буюртма рўйхати',purch:'Приходлар',pret:'Таъминотчига қайтариш',transf:'Кўчиришлар',inv:'Инвентаризация',
-  clients:'Мижозлар',debtors:'Қарздорлар',pays:'Тўловлар',cash:'Касса',obal:'Бошланғич қарзлар (iBox\'дан ўтказиш)',zach:'Ўзаро ҳисоб (взаимозачёт)',sobal:'Таъминотчиларга бошланғич қарз (iBox\'дан ўтказиш)',exp:'Харажатлар',otk:'Откатлар',pnl:'Фойда-зарар',trend:'Ойма-ой солиштириш',mov:'Ойдаги ҳамма ҳаракатлар',rexp:'Харажатлар таҳлили',rcli:'Мижозлар бўйича фойда',bank:'Банк ва Click ҳисоби',own:'Хўжайин пули',assets:'Баланс (капитал)',pmon:'Товар сотуви ойлар бўйича',ract:'Мижозлар фаоллиги',dhist:'Қарз динамикаси (ой охирига)',cpt:'Айланма ва сверка',stt:'Ходимлар билан ҳисоб-китоб',mflow:'Кассалар айланмаси ва пул ҳаракати',pchk:'Товар фойдаси текшируви',day:'Кун ҳисоботи',audit:'Амаллар тарихи',turn:'Товар айланмаси (оборот)',rprod:'Товарлар бўйича фойда',rsell:'Сотувчилар бўйича',salary:'Ойлик',settings:'Созламалар',
+  clients:'Мижозлар',debtors:'Қарздорлар',dage:'Қарз ёши',sage:'Узоқ ётган товар',pays:'Тўловлар',cash:'Касса',obal:'Бошланғич қарзлар (iBox\'дан ўтказиш)',zach:'Ўзаро ҳисоб (взаимозачёт)',sobal:'Таъминотчиларга бошланғич қарз (iBox\'дан ўтказиш)',exp:'Харажатлар',otk:'Откатлар',pnl:'Фойда-зарар',trend:'Ойма-ой солиштириш',mov:'Ойдаги ҳамма ҳаракатлар',rexp:'Харажатлар таҳлили',rcli:'Мижозлар бўйича фойда',bank:'Банк ва Click ҳисоби',own:'Хўжайин пули',assets:'Баланс (капитал)',pmon:'Товар сотуви ойлар бўйича',ract:'Мижозлар фаоллиги',dhist:'Қарз динамикаси (ой охирига)',cpt:'Айланма ва сверка',stt:'Ходимлар билан ҳисоб-китоб',mflow:'Кассалар айланмаси ва пул ҳаракати',pchk:'Товар фойдаси текшируви',day:'Кун ҳисоботи',audit:'Амаллар тарихи',turn:'Товар айланмаси (оборот)',rprod:'Товарлар бўйича фойда',rsell:'Сотувчилар бўйича',salary:'Ойлик',settings:'Созламалар',
   client:'Мижоз',saleForm:'Янги сотув',purchForm:'Янги приход',transfForm:'Янги кўчириш',retForm:'Қайтариш ёки алмаштириш',pretForm:'Таъминотчига қайтариш'};
 var PARENT = {client:'debtors',saleForm:'sales', purchForm:'purch', transfForm:'transf', retForm:'ret', pretForm:'pret'};
 var ACCESS = {
@@ -347,7 +347,7 @@ function canSell(){ return perm('sell'); }
 function canMoney(){ return perm('pay_in'); }
 function isCash(){ return perm('cash_admin'); }
 var ROLES={admin:'Админ',viewer:'Раҳбар',manager:'Филиал мудири',editor:'Сотувчи',sklad:'Омборчи',buh:'Бухгалтер',cashier:'Кассир'};
-var VIEWREQ={zach:['supplier_pay'],sobal:['__admin_only'],pos:['sell'],saleForm:['sell'],ret:['sell','reports'],retForm:['sell'],sales:['sell','reports','pay_in'],dlv:['sell','stock_in','reports'],load:['sell','stock_in'],
+var VIEWREQ={dage:['sell','pay_in','reports','client_admin','pay_check'],sage:['see_cost','stock_in','inventory','reports'],zach:['supplier_pay'],sobal:['__admin_only'],pos:['sell'],saleForm:['sell'],ret:['sell','reports'],retForm:['sell'],sales:['sell','reports','pay_in'],dlv:['sell','stock_in','reports'],load:['sell','stock_in'],
   purch:['stock_in','reports'],purchForm:['stock_in'],pret:['stock_in'],pretForm:['stock_in'],pcs:['stock_in','sell'],order:['stock_in','reports'],sup:['suppliers'],transf:['stock_move','reports'],transfForm:['stock_move'],inv:['inventory'],turn:['turnover'],
   clients:['sell','pay_in','reports','client_admin'],debtors:['sell','pay_in','reports','client_admin','pay_check'],client:['sell','pay_in','reports','client_admin','pay_check'],obal:['client_admin'],
   pays:['pay_in','pay_check','reports'],exp:['expense','reports'],cash:['cash','cash_admin','reports'],bank:['bank'],otk:['see_otk'],own:['owner'],audit:['audit'],pchk:['reports'],pmon:['reports'],ract:['reports','sell','pay_in'],dhist:['reports','pay_in','client_admin','pay_check'],cpt:['reports','pay_in','client_admin','pay_check','suppliers'],stt:['salary_all'],mflow:['cash_admin','bank','reports'],day:['day_close','cash','reports'],
@@ -439,7 +439,7 @@ function render(){
   var t=TITLES[v]; if(v==='saleForm' && S.form && S.form.editId) t='Сотувни таҳрирлаш №'+S.form.editNo;
   $('vTitle').textContent=t; $('vCrumb').textContent=crumb; $('topActs').innerHTML='';
   var fn={home:vHome,pos:vPos,sales:vSales,ret:vRet,products:vProducts,stock:vStock,purch:vPurch,transf:vTransf,inv:vInv,clients:vClients,debtors:vDebtors,
-    client:vClient,dlv:vDlv,otk:vOtk,load:vLoad,sup:vSup,pcs:vPcs,order:vOrder,turn:vTurn,assets:vAssets,cash:vCash,obal:vObal,sobal:vSobal,zach:vZach,bank:vBank,own:vOwn,trend:vTrend,mov:vMov,pchk:vPchk,pmon:vPmon,ract:vRact,dhist:vDhist,cpt:vCpt,stt:vStt,mflow:vMflow,audit:vAudit,day:vDay,rexp:vRexp,rcli:vRcli,calc:vCalc,pays:vPays,exp:vExp,pnl:vPnl,rprod:vRprod,rsell:vRsell,salary:vSalary,settings:vSettings,saleForm:vSaleForm,purchForm:vPurchForm,transfForm:vTransfForm,retForm:vRetForm,pret:vPret,pretForm:vPretForm}[v];
+    client:vClient,dlv:vDlv,otk:vOtk,load:vLoad,sup:vSup,pcs:vPcs,order:vOrder,turn:vTurn,assets:vAssets,cash:vCash,obal:vObal,sobal:vSobal,zach:vZach,dage:vDage,sage:vSage,bank:vBank,own:vOwn,trend:vTrend,mov:vMov,pchk:vPchk,pmon:vPmon,ract:vRact,dhist:vDhist,cpt:vCpt,stt:vStt,mflow:vMflow,audit:vAudit,day:vDay,rexp:vRexp,rcli:vRcli,calc:vCalc,pays:vPays,exp:vExp,pnl:vPnl,rprod:vRprod,rsell:vRsell,salary:vSalary,settings:vSettings,saleForm:vSaleForm,purchForm:vPurchForm,transfForm:vTransfForm,retForm:vRetForm,pret:vPret,pretForm:vPretForm}[v];
   fn(); drawTabs();
 }
 var TABSR={admin:[['home','Бош','home'],['pos','Касса','pos'],['sales','Сотувлар','sale'],['debtors','Қарздорлар','clients'],['_menu','Меню','menu']],
@@ -1726,13 +1726,13 @@ function drawClientList(debtOnly){
     t+='<div class="tbl"><table class="jt cards"><thead><tr><th>Мижоз</th><th>Телефон</th><th>Охирги сотув</th><th class="n">Қарзи</th>'+(debtOnly?'<th class="n">Кечиккан</th>':'')+'<th></th></tr></thead><tbody>';
     if(!list.length) t+='<tr><td colspan="6" class="empty">'+(debtOnly?(st.f.o?'Муддати ўтган қарз йўқ.':'Қарздор йўқ.'):'Мижоз йўқ. Сотувда мижоз номини ёзсангиз, ўзи қўшилади.')+'</td></tr>';
     list.forEach(function(c){ var lim=c.limit>0&&c.debt>c.limit;
-      t+='<tr class="click" data-cid="'+esc(c.id)+'"><td class="c-main"><b>'+esc(c.name)+'</b>'+(c.note?'<div class="mut sm">'+esc(c.note)+'</div>':'')+(lim?' <span class="pill warn">лимитдан ошган</span>':'')+'</td><td class="c-x">'+(c.phone?esc(c.phone):'<span class="mut">—</span>')+'</td><td class="c-date">'+(c.last?dLabel(c.last):'—')+'</td><td class="n c-money '+(c.debt>0?'neg':(c.debt<0?'pos':'mut'))+'">'+(c.debt?fmt(c.debt):'0')+'</td>'+(debtOnly?'<td class="n c-tag">'+(c.over>0?'<b class="neg">'+fmt(c.over)+'</b><div class="sm neg">'+c.odays+' кун</div>':'<span class="mut">—</span>')+'</td>':'')+'<td class="n c-act">'+(canMoney()&&c.debt>0?'<button class="btn sm" type="button" data-pay="'+esc(c.name)+'">Тўлов</button>':'')+'</td></tr>'; });
+      t+='<tr class="click" data-cid="'+esc(c.id)+'"><td class="c-main"><b>'+esc(c.name)+'</b>'+(c.note?'<div class="mut sm">'+esc(c.note)+'</div>':'')+(lim?' <span class="pill warn">лимитдан ошган</span>':'')+'</td><td class="c-x">'+(c.phone?esc(c.phone):'<span class="mut">—</span>')+'</td><td class="c-date">'+(c.last?dLabel(c.last):'—')+'</td><td class="n c-money '+(c.debt>0?'neg':(c.debt<0?'pos':'mut'))+'">'+(c.debt?fmt(c.debt):'0')+'</td>'+(debtOnly?'<td class="n c-tag">'+(c.over>0?'<b class="neg">'+fmt(c.over)+'</b><div class="sm neg">'+c.odays+' кун</div>':'<span class="mut">—</span>')+'</td>':'')+'<td class="n c-act">'+(debtOnly&&c.debt>0?'<button class="btn sm" type="button" data-rem="'+esc(c.id)+'">Эслатма</button> ':'')+(canMoney()&&c.debt>0?'<button class="btn sm" type="button" data-pay="'+esc(c.name)+'">Тўлов</button>':'')+'</td></tr>'; });
     t+='</tbody>'+(list.length?'<tfoot><tr><td colspan="3">'+list.length+' та мижоз</td><td class="n">'+fmt(tot)+'</td>'+(debtOnly?'<td class="n">'+fmt(ov)+'</td>':'')+'<td></td></tr></tfoot>':'')+'</table></div>';
     $('jt').innerHTML=t;
     $('jt').querySelectorAll('[data-ov]').forEach(function(b){ b.onclick=function(e){ e.stopPropagation(); st.f.o=b.dataset.ov; draw(); }; }); };
   $('cq').oninput=function(){ st.q=this.value; draw(); };
   $('cxls').onclick=function(){ xls(debtOnly?'Қарздорлар '+today():'Мижозлар', ['Мижоз','Телефон','Изоҳ','Охирги сотув','Қарзи'], rows().map(function(c){ return [c.name,c.phone||'',c.note||'',c.last?dLabel(c.last):'',c.debt]; })); };
-  $('jt').onclick=function(e){ var pb=e.target.closest('[data-pay]'); if(pb){ e.stopPropagation(); payForm(pb.dataset.pay); return; } var tr=e.target.closest('tr[data-cid]'); if(tr) openClient(tr.dataset.cid); };
+  $('jt').onclick=function(e){ var rb=e.target.closest('[data-rem]'); if(rb){ e.stopPropagation(); var c=S.clients.filter(function(x){ return x.id===rb.dataset.rem; })[0]; if(c) remindDrawer({name:c.name, phone:c.phone, debt:c.debt, over:c.over||0, odays:c.odays||0}); return; } var pb=e.target.closest('[data-pay]'); if(pb){ e.stopPropagation(); payForm(pb.dataset.pay); return; } var tr=e.target.closest('tr[data-cid]'); if(tr) openClient(tr.dataset.cid); };
   draw();
 }
 var EVT={sale:'Сотув',pay:'Тўлов',ret:'Қайтариш',obal:'Бошланғич қарз',wo:'Ҳисобдан чиқарилди'};
@@ -1978,6 +1978,63 @@ function vZach(){
     $('zSave').onclick=function(){ var b=this; if(!F.client||!F.sup||!(F.amount>0)){ toast('Мижоз, таъминотчи ва суммани ёзинг',true); return; } if(!armed(b)) return; busy(b,true);
       api('addOffset', S.token, {date:F.date, branch:F.branch, clientName:F.client, supplier:F.sup, amount:F.amount, cur:F.cur, rate:F.rate, note:F.note}).then(function(r){ toast('Ўзаро ҳисоб сақланди: '+fmt(r.amount)); S.zf=null; invalidate(); return refreshBoot(); }).then(vZach).catch(function(e){ busy(b,false); toast(errText(e),true); }); };
     $('view').querySelectorAll('[data-zv]').forEach(function(b){ b.onclick=function(){ if(!armed(b)) return; b.disabled=true; api('voidOffset', S.token, b.dataset.zv).then(function(){ toast('Бекор қилинди'); invalidate(); return refreshBoot(); }).then(vZach).catch(function(e){ b.disabled=false; toast(errText(e),true); }); }; });
+  }).catch(failView);
+}
+var REM_STAGES=[['soft','1-эслатма (юмшоқ)'],['firm','2-эслатма (қатъий)'],['last','Охирги огоҳлантириш']];
+function remText(stage, c){
+  var d=fmt(c.debt)+' сўм', ov=c.over>0?fmt(c.over)+' сўм':'', dt=dLabel(today());
+  if(stage==='soft') return 'Ассалому алайкум, '+c.name+'!\nNur Islam Metal\'дан безовта қиляпмиз. '+dt+' ҳолатига қарзингиз: '+d+'.'+(ov?' Шундан '+ov+'нинг тўлов муддати '+c.odays+' кун олдин ўтган.':'')+'\nИмконингиз бўлганда тўлаб қўйишингизни сўраймиз. Саволингиз бўлса, бемалол қўнғироқ қилинг.\nҲурмат билан, Nur Islam Metal';
+  if(stage==='firm') return 'Ҳурматли '+c.name+'!\nNur Islam Metal олдидаги қарзингиз '+dt+' ҳолатига '+d+'.'+(ov?' Шундан '+ov+'нинг муддати '+c.odays+' кун олдин ўтган.':'')+'\nИлтимос, қарзни 3 кун ичида тўланг ёки тўлов кунини биз билан келишинг. Акт-сверка керак бўлса, юбориб берамиз.\nNur Islam Metal';
+  return 'Ҳурматли '+c.name+'!\nNur Islam Metal олдидаги қарзингиз '+d+' бўлиб,'+(ov?' '+ov+'нинг муддати '+c.odays+' кун олдин ўтган.':' ҳали тўланмаган.')+'\nБу охирги огоҳлантириш. Қарз тўланмагунча янги товар қарзга берилмайди. Илтимос, бугун-эрта ичида тўловни амалга оширинг ёки бизга қўнғироқ қилинг.\nNur Islam Metal';
+}
+function remindDrawer(c){
+  var stage=c.odays>30?'last':(c.odays>0?'firm':'soft');
+  var h=drawerHead('Эслатма: '+esc(c.name), 'Қарзи '+fmt(c.debt)+(c.over>0?' · кечиккан '+fmt(c.over)+' ('+c.odays+' кун)':''))+'<div class="db"><div class="chips" id="rmSt">'+REM_STAGES.map(function(x){ return '<button type="button" class="chip'+(x[0]===stage?' on':'')+'" data-st="'+x[0]+'">'+x[1]+'</button>'; }).join('')+'</div>';
+  h+='<textarea class="inp" id="rmT" rows="9" style="width:100%;margin-top:12px;line-height:1.5"></textarea><div class="mut sm" style="margin:6px 0 12px">Матнни юборишдан олдин ўзгартириш мумкин.</div>';
+  h+='<div class="ctrl" style="flex-wrap:wrap"><button class="btn pri" type="button" id="rmTg">Telegram орқали</button>'+(c.phone?'<a class="btn" id="rmSms" href="#">СМС</a>':'')+'<button class="btn" type="button" id="rmCp">Нусха олиш</button></div>'+(c.phone?'':'<div class="mut sm" style="margin-top:8px">Мижознинг телефони ёзилмаган. СМС учун мижоз карточкасига телефон қўшинг.</div>')+'</div>';
+  openDrawer(h, function(d){ d.querySelector('[data-close]').onclick=closeDrawer;
+    var set=function(){ $('rmT').value=remText(stage,c); d.querySelectorAll('[data-st]').forEach(function(b){ b.classList.toggle('on', b.dataset.st===stage); }); };
+    d.querySelectorAll('[data-st]').forEach(function(b){ b.onclick=function(){ stage=b.dataset.st; set(); }; }); set();
+    $('rmCp').onclick=function(){ var v=$('rmT').value; (navigator.clipboard?navigator.clipboard.writeText(v):Promise.reject()).then(function(){ toast('Нусха олинди'); }).catch(function(){ $('rmT').select(); document.execCommand('copy'); toast('Нусха олинди'); }); };
+    $('rmTg').onclick=function(){ window.open('https://t.me/share/url?url='+encodeURIComponent(' ')+'&text='+encodeURIComponent($('rmT').value),'_blank'); };
+    if($('rmSms')) $('rmSms').onclick=function(e){ e.preventDefault(); var ph=String(c.phone).replace(/[^\d+]/g,''); location.href='sms:'+ph+'?body='+encodeURIComponent($('rmT').value); };
+  });
+}
+function vDage(){
+  topActs('<button class="btn sm" type="button" id="dgX">'+ib('xls','Excel')+'</button>', null); loadingView();
+  api('debtAgeing', S.token).then(function(G){
+    var L=['0–30 кун','31–60 кун','61–90 кун','90+ кун'], T=G.totals, all=T[0]+T[1]+T[2]+T[3];
+    var h='<section class="kpis">'+T.map(function(v,i){ return '<div class="kpi"><span class="l">'+L[i]+'</span><span class="v'+(i>=2&&v>0?' neg':'')+'">'+fmt(v)+'</span><span class="mut sm">'+(all?Math.round(v/all*100):0)+'%</span></div>'; }).join('')+'</section>';
+    h+='<div class="card flush"><div class="toolbar"><span class="mut sm">Қарз сотув санасидан неча кун ўтганига қараб бўлинган. Тўловлар энг эски қарзни биринчи ёпади. 90 кундан эски қарз — қайтмаслик хавфи юқори.</span></div><div class="tbl"><table class="jt cards"><thead><tr><th>Мижоз</th>'+L.map(function(l){ return '<th class="n">'+l+'</th>'; }).join('')+'<th class="n">Жами</th><th>Охирги тўлов</th><th></th></tr></thead><tbody>';
+    if(!G.list.length) h+='<tr><td colspan="8" class="empty">Қарздор йўқ.</td></tr>';
+    G.list.forEach(function(c,i){ h+='<tr class="click" data-cid="'+esc(c.id)+'"><td class="c-main"><b>'+esc(c.name)+'</b>'+(c.phone?'<div class="mut sm">'+esc(c.phone)+'</div>':'')+'</td>'+c.b.map(function(v,j){ return '<td class="n'+(v>0&&j>=2?' neg':'')+'">'+(v?(j===3?'<b>'+fmt(v)+'</b>':fmt(v)):'<span class="mut">—</span>')+'</td>'; }).join('')+'<td class="n"><b>'+fmt(c.total)+'</b></td><td class="mut sm">'+(c.lastPay?dLabel(c.lastPay):'тўламаган')+'</td><td class="n"><button class="btn sm" type="button" data-rm="'+i+'">Эслатма</button></td></tr>'; });
+    h+='</tbody>'+(G.list.length?'<tfoot><tr><td>'+G.list.length+' та мижоз</td>'+T.map(function(v){ return '<td class="n">'+fmt(v)+'</td>'; }).join('')+'<td class="n">'+fmt(all)+'</td><td colspan="2"></td></tr></tfoot>':'')+'</table></div></div>';
+    setView(h);
+    $('view').onclick=function(e){ var b=e.target.closest('[data-rm]'); if(b){ e.stopPropagation(); var c=G.list[+b.dataset.rm]; remindDrawer({name:c.name, phone:c.phone, debt:c.total, over:c.over, odays:c.odays}); return; } var tr=e.target.closest('tr[data-cid]'); if(tr) openClient(tr.dataset.cid); };
+    $('dgX').onclick=function(){ xls('Қарз ёши '+today(), ['Мижоз','Телефон'].concat(L,['Жами','Охирги тўлов']), G.list.map(function(c){ return [c.name,c.phone].concat(c.b,[c.total,c.lastPay]); })); };
+  }).catch(failView);
+}
+function vSage(){
+  var st=S.sgf||(S.sgf={min:60, br:''});
+  topActs('<button class="btn sm" type="button" id="sgX">'+ib('xls','Excel')+'</button>', null); loadingView();
+  api('stockAgeing', S.token).then(function(G){
+    var draw=function(){
+      var list=G.list.filter(function(x){ return (!st.br||x.branch===st.br) && (x.days===null || x.days>=st.min); }), val=0, q90=0;
+      list.forEach(function(x){ val+=x.value||0; });
+      G.list.forEach(function(x){ if((!st.br||x.branch===st.br) && (x.days===null||x.days>=90)) q90+=x.value||0; });
+      var h=G.seeCost?'<section class="kpis"><div class="kpi"><span class="l">Танланган товарлар қиймати</span><span class="v">'+fmt(val)+'</span><span class="mut sm">'+list.length+' та</span></div><div class="kpi"><span class="l">90 кундан ортиқ ётган пул</span><span class="v neg">'+fmt(q90)+'</span></div></section>':'';
+      h+='<div class="card flush"><div class="toolbar"><div class="chips">'+[[0,'Ҳаммаси'],[30,'30+ кун'],[60,'60+ кун'],[90,'90+ кун'],[180,'180+ кун']].map(function(o){ return '<button type="button" class="chip'+(st.min===o[0]?' on':'')+'" data-mn="'+o[0]+'">'+o[1]+'</button>'; }).join('')+'</div><select class="inp" id="sgB" style="width:auto"><option value="">Иккала филиал</option>'+branchOpts(st.br,['f1','f2'])+'</select></div>';
+      h+='<div class="tbl"><table class="jt cards"><thead><tr><th>Товар</th><th>Филиал</th><th class="n">Қолдиқ</th>'+(G.seeCost?'<th class="n">Қиймати</th>':'')+'<th>Охирги сотув</th><th class="n">Ётибди</th><th class="n">90 кунда сотилди</th><th class="n">Қанчага етади</th></tr></thead><tbody>';
+      if(!list.length) h+='<tr><td colspan="8" class="empty">Бу шартга тушадиган товар йўқ.</td></tr>';
+      list.forEach(function(x){ h+='<tr class="click" data-pc="'+esc(x.code)+'"><td class="c-main"><b>'+esc(x.name)+'</b><div class="mut sm">'+esc(x.code)+(x.group?' · '+esc(x.group):'')+'</div></td><td>'+BR[x.branch]+'</td><td class="n">'+fmt(x.qty)+' '+esc(x.unit)+'</td>'+(G.seeCost?'<td class="n"><b>'+fmt(x.value)+'</b></td>':'')+'<td>'+(x.lastSale?dLabel(x.lastSale):'<span class="neg">сотилмаган</span>')+'</td><td class="n'+(x.days>=90?' neg':'')+'"><b>'+(x.days===null?'—':x.days+' кун')+'</b></td><td class="n">'+(x.sold90?fmt(x.sold90)+' '+esc(x.unit):'<span class="mut">0</span>')+'</td><td class="n">'+(x.cover===null?'<span class="mut">—</span>':(x.cover>365?'1 йилдан кўп':x.cover+' кун'))+'</td></tr>'; });
+      h+='</tbody></table></div><div class="pager"><span>«Ётибди» — охирги сотувдан (сотилмаган бўлса охирги киримдан) ўтган кун. «Қанчага етади» — охирги 90 кундаги сотув тезлиги билан.</span></div></div>';
+      setView(h);
+      $('view').querySelectorAll('[data-mn]').forEach(function(b){ b.onclick=function(){ st.min=+b.dataset.mn; draw(); }; });
+      $('sgB').onchange=function(){ st.br=this.value; draw(); };
+      $('view').querySelectorAll('[data-pc]').forEach(function(tr){ tr.onclick=function(){ productDrawer(tr.dataset.pc); }; });
+      $('sgX').onclick=function(){ xls('Узоқ ётган товар '+today(), ['Код','Товар','Филиал','Қолдиқ','Ўлчов'].concat(G.seeCost?['Қиймати']:[],['Охирги сотув','Ётибди (кун)','90 кунда сотилди','Етади (кун)']), list.map(function(x){ return [x.code,x.name,BR[x.branch],x.qty,x.unit].concat(G.seeCost?[x.value]:[],[x.lastSale,x.days,x.sold90,x.cover]); })); };
+    };
+    draw();
   }).catch(failView);
 }
 function vTurn(){
