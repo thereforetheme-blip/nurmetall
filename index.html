@@ -1493,7 +1493,7 @@ function productDrawer(code){
     h+='<label class="f" style="grid-column:1/-1">Номи<input class="inp" id="pfName" value="'+esc(p.name)+'" placeholder="Масалан: Арматура 12 мм А500"></label>';
     h+='<label class="f">Гуруҳ<input class="inp" id="pfGroup" list="glist" value="'+esc(p.group)+'" placeholder="Арматура, Труба…"><datalist id="glist">'+Object.keys(groups).map(function(g){ return '<option value="'+esc(g)+'"></option>'; }).join('')+'</datalist></label>';
     h+='<label class="f">Асосий ўлчов (қолдиқ шунда)<input class="inp" id="pfUnit" value="'+esc(p.unit)+'" placeholder="м, дона, кг"></label>';
-    h+='<label class="f">Сотув нархи (1 асосий)<input class="inp money" id="pfPrice" value="'+(p.price?fmt(p.price):'')+'"></label>';
+    h+='<label class="f">Сотув нархи (1 асосий)<input class="inp money" id="pfPrice" value="'+(p.price?fmt(p.price):'')+'"><span class="mut sm" id="pfMk"></span></label>';
     h+='<label class="f">2-ўлчов (ихтиёрий)<input class="inp" id="pfUnit2" value="'+esc(p.unit2)+'" placeholder="т"></label>';
     h+='<label class="f">1 та 2-ўлчовда нечта асосий<input class="inp qty" id="pfK2" value="'+esc(p.k2)+'" placeholder="масалан 1126"></label>';
     h+='<label class="f">Сотув нархи (1 та 2-ўлчов)<input class="inp money" id="pfPrice2" value="'+(p.price2?fmt(p.price2):'')+'"></label>';
@@ -1504,10 +1504,19 @@ function productDrawer(code){
   } else {
     h+='<div class="meta"><div><span>Гуруҳ</span><b>'+esc(p.group||'—')+'</b></div><div><span>Сотув нархи</span><b>'+(p.price?fmt(p.price)+' / '+esc(p.unit):'—')+'</b></div>'+(p.unit2?'<div><span>'+esc(p.unit2)+' нархи</span><b>'+(p.price2?fmt(p.price2):'—')+'</b></div>':'')+'</div>';
   }
+  if(!isNew && (adm||perm('see_cost'))) h+='<h3 style="font-size:14px">Охирги приходлар</h3><div id="plast" class="mut sm">Юкланмоқда…</div>';
   if(!isNew) h+='<h3 style="font-size:14px">Ҳаракат тарихи</h3><div id="phist" class="mut sm">Юкланмоқда…</div>';
   h+='</div>';
   openDrawer(h, function(d){
     d.querySelectorAll('[data-close]').forEach(function(b){ b.onclick=closeDrawer; });
+    var LP=null, mk=function(){ var el=$('pfMk'), pr=$('pfPrice')?pm($('pfPrice').value):(+p.price||0); if(!LP||!LP.length) { if(el) el.textContent=''; return; } var c=LP[0].baseFull, t=pr&&c?'Устама: '+String(Math.round((pr-c)/c*1000)/10).replace('.',',')+'% (охирги приход '+fmt(c)+')':'Охирги приход: '+fmt(c)+' / '+esc(p.unit); if(el) el.textContent=t; return t; };
+    if(!isNew && $('plast')) api('productLastPurch', S.token, p.code).then(function(L){ LP=L; var el=$('plast'); if(!el) return; el.className='';
+      if(!L.length){ el.innerHTML='<div class="mut sm">Бу товарга ҳали приход қилинмаган.</div>'; return; }
+      var f=L[0], one=function(e){ return e.cur==='USD'?fu(e.base)+' $ <span class="mut sm">('+fmt(e.baseUzs)+' сўм)</span>':fmt(e.base)+' сўм'; };
+      var h2='<div class="card" style="padding:12px 14px;margin:0 0 10px;background:var(--soft)"><div class="mut sm">Охирги приход · '+dLabel(f.date)+' · '+esc(f.supplier||'—')+'</div><div style="font-size:18px;font-weight:700;margin-top:4px">'+one(f)+' / '+esc(p.unit)+'</div>'+(f.baseFull!==f.baseUzs?'<div class="mut sm">Қўшимча харажат билан: '+fmt(f.baseFull)+' сўм</div>':'')+((+p.price)?'<div class="mut sm" style="margin-top:4px">'+mk()+'</div>':'')+'</div>';
+      if(L.length>1) h2+='<div class="tbl"><table><thead><tr><th>Сана</th><th>Таъминотчи</th><th class="n">Ҳужжатда</th><th class="n">1 '+esc(p.unit)+'</th></tr></thead><tbody>'+L.map(function(e){ return '<tr><td>'+dLabel(e.date)+'<div class="mut sm">№'+esc(e.no)+' · '+BR[e.branch]+'</div></td><td>'+esc(e.supplier||'—')+'</td><td class="n">'+esc(e.qty)+' '+esc(e.unit)+' × '+(e.cur==='USD'?fu(e.price)+' $':fmt(e.price))+'</td><td class="n"><b>'+one(e)+'</b></td></tr>'; }).join('')+'</tbody></table></div>';
+      el.innerHTML=h2; mk(); }).catch(function(){ var el=$('plast'); if(el) el.textContent=''; });
+    if($('pfPrice')) $('pfPrice').addEventListener('input', function(){ mk(); });
     if(!isNew) api('productHistory', S.token, p.code).then(function(ev){ var el=$('phist'); if(!el) return; var K={purch:'Приход',pret:'Таъминотчига қайтди',sale:'Сотув',ret:'Мижоздан қайтди',tout:'Кўчирилди →',tin:'Кўчиб келди ←',inv:'Инвентаризация',open:'Бошланғич қолдиқ'};
       el.className=''; el.innerHTML=ev.length?'<div class="tbl"><table><thead><tr><th>Сана</th><th>Ҳужжат</th><th class="n">Кирди</th><th class="n">Чиқди</th><th class="n">Қолдиқ</th></tr></thead><tbody>'+ev.slice().reverse().slice(0,150).map(function(e){ return '<tr><td>'+dLabel(e.date)+'<div class="mut sm">'+BR[e.branch]+'</div></td><td>'+K[e.kind]+' №'+esc(e.no)+'<div class="mut sm">'+esc(e.party)+'</div></td><td class="n pos">'+(e.qb>0?fq(Math.round(e.qb*1000)/1000):'')+'</td><td class="n neg">'+(e.qb<0?fq(Math.round(-e.qb*1000)/1000):'')+'</td><td class="n"><b>'+fq(e.bal)+'</b></td></tr>'; }).join('')+'</tbody></table></div><div class="mut sm">Миқдорлар асосий ўлчовда ('+esc(p.unit)+'), қолдиқ ҳар филиал бўйича.</div>':'Ҳаракат йўқ.'; }).catch(function(){});
     if(!adm) return;
