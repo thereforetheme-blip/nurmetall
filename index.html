@@ -544,6 +544,7 @@ function invalidate(){ S.cache={}; S.rep=null; S.trendC={}; S.movC={}; S.capC={}
 
 /* ---------- data ---------- */
 function applyBoot(b){
+  S.bootAt = Date.now();
   S.me = b.me; S.products = b.products; S.pmap = {};
   b.products.forEach(function(p){ S.pmap[p.code]=p; });
   S.stock = {}; b.stock.forEach(function(r){ S.stock[r.code+'|'+r.branch]=r; });
@@ -557,6 +558,16 @@ function applyBoot(b){
   dl.innerHTML = '<datalist id="aglist">'+(S.agents||[]).map(function(a){ return '<option value="'+esc(a)+'"></option>'; }).join('')+'</datalist><datalist id="drvlist">'+(S.drivers||[]).map(function(d){ return '<option value="'+esc(d.name)+'"></option>'; }).join('')+'</datalist><datalist id="plist">'+pl+'</datalist><datalist id="clist">'+cl+'</datalist><datalist id="slist">'+sl+'</datalist><datalist id="elist">'+el+'</datalist>';
 }
 function refreshBoot(){ return api('bootstrap', S.token).then(applyBoot); }
+/* Маълумотни янги ҳолатда ушлаш: вкладкага қайтганда ва ҳар 3 дақиқада товар/қолдиқ/мижозлар янгиланади */
+function bootFresh(maxAge){
+  if(!S.token || S.bootBusy) return Promise.resolve(false);
+  if(S.bootAt && Date.now()-S.bootAt < (maxAge||60000)) return Promise.resolve(false);
+  S.bootBusy=true;
+  return refreshBoot().then(function(){ S.bootBusy=false; if($('pkL') && S.form) drawPickList(S.form); return true; }).catch(function(){ S.bootBusy=false; return false; });
+}
+document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='visible') bootFresh(60000); });
+window.addEventListener('focus', function(){ bootFresh(60000); });
+setInterval(function(){ if(document.visibilityState==='visible') bootFresh(170000); }, 180000);
 function loadList(kind, from, to){
   var key=kind+'|'+from+'|'+to+'|'+S.branch;
   if(S.cache[key]) return Promise.resolve(S.cache[key]);
@@ -1309,8 +1320,8 @@ function vPays(){ journal('pays'); }
 function vExp(){ journal('exp'); }
 
 /* ---------- SALE FORM & POS ---------- */
-function vSaleForm(){ if(!S.form || S.form.kind!=='sale') S.form=newForm('sale'); S.form.pos=false; drawSaleForm(); }
-function vPos(){ if(!S.form || S.form.kind!=='sale' || S.form.editId) S.form=newForm('sale'); S.form.pos=true; drawSaleForm(); }
+function vSaleForm(){ if(!S.form || S.form.kind!=='sale') S.form=newForm('sale'); S.form.pos=false; drawSaleForm(); bootFresh(30000); }
+function vPos(){ if(!S.form || S.form.kind!=='sale' || S.form.editId) S.form=newForm('sale'); S.form.pos=true; drawSaleForm(); bootFresh(30000); }
 function saleHeadFields(f){
   var h='<div class="grid-f">';
   h+='<label class="f">Мижоз<input class="inp" id="fClient" list="clist" placeholder="Номи (янги бўлса ўзи қўшилади)" value="'+esc(f.client)+'"></label>';
