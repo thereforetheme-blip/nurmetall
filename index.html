@@ -544,7 +544,7 @@ function invalidate(){ S.cache={}; S.rep=null; S.trendC={}; S.movC={}; S.capC={}
 
 /* ---------- data ---------- */
 function applyBoot(b){
-  S.bootAt = Date.now();
+  S.bootAt = Date.now(); S.bootSigPrev = S.bootSig; S.bootSig = (function(t){ var h=0; for(var i=0;i<t.length;i++){ h=(h*31+t.charCodeAt(i))|0; } return h; })(JSON.stringify([b.stock,b.clients,b.products,b.suppliers]));
   S.me = b.me; S.products = b.products; S.pmap = {};
   b.products.forEach(function(p){ S.pmap[p.code]=p; });
   S.stock = {}; b.stock.forEach(function(r){ S.stock[r.code+'|'+r.branch]=r; });
@@ -563,11 +563,20 @@ function bootFresh(maxAge){
   if(!S.token || S.bootBusy) return Promise.resolve(false);
   if(S.bootAt && Date.now()-S.bootAt < (maxAge||60000)) return Promise.resolve(false);
   S.bootBusy=true;
-  return refreshBoot().then(function(){ S.bootBusy=false; if($('pkL') && S.form) drawPickList(S.form); return true; }).catch(function(){ S.bootBusy=false; return false; });
+  return refreshBoot().then(function(){ S.bootBusy=false; if($('pkL') && S.form) drawPickList(S.form); if(S.bootSigPrev!==S.bootSig) liveRerender(); return true; }).catch(function(){ S.bootBusy=false; return false; });
+}
+/* Журнал, ҳисобот, қарздорлар каби кўриш экранларини жимгина қайта чизиш (бошқа ходим ўзгартирган бўлса) */
+var NOLIVE={saleForm:1,pos:1,purchForm:1,transfForm:1,retForm:1,pretForm:1,settings:1,salary:1,calc:1,inv:1,obal:1,sobal:1,zach:1,pcs:1,order:1,load:1};
+function liveRerender(){
+  var v=S.view; if(!v || NOLIVE[v] || document.body.classList.contains('dr')) return;
+  var ae=document.activeElement; if(ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName) && ae.value) return;
+  var y=window.scrollY; invalidate();
+  try{ render(); }catch(e){ return; }
+  setTimeout(function(){ window.scrollTo(0,y); }, 400);
 }
 document.addEventListener('visibilitychange', function(){ if(document.visibilityState==='visible') bootFresh(60000); });
 window.addEventListener('focus', function(){ bootFresh(60000); });
-setInterval(function(){ if(document.visibilityState==='visible') bootFresh(170000); }, 180000);
+setInterval(function(){ if(document.visibilityState==='visible') bootFresh(55000); }, 60000);
 function loadList(kind, from, to){
   var key=kind+'|'+from+'|'+to+'|'+S.branch;
   if(S.cache[key]) return Promise.resolve(S.cache[key]);
