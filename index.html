@@ -344,6 +344,53 @@ body.winter .logo::before{content:'';position:absolute;left:-3px;right:-3px;top:
 @keyframes nsC{from{transform:translate3d(0,0,0)}to{transform:translate3d(0,330px,0)}}
 @media (max-width:900px){.nim-snow.s3{display:none!important}nav.side{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#EEF6F8!important}body[data-theme=dark] nav.side{background:#0E1A1F!important}#tabbar,#mbar{background:rgba(250,253,254,.97)!important}body[data-theme=dark] #tabbar,body[data-theme=dark] #mbar{background:rgba(14,26,31,.97)!important}}
 @media (prefers-reduced-motion:reduce){.btn,.icon-btn,nav.side .nav{transition:none}.nim-snow{animation:none!important}#nimQb{display:none!important}}
+/* ---- Танлагич рўйхатлари: матн ҳар доим кўринсин (2026-11-28) ---- */
+body{color-scheme:light}body[data-theme=dark]{color-scheme:dark}
+select option,select optgroup{background-color:#FFFFFF;color:#0F1720}
+body[data-theme=dark] select option,body[data-theme=dark] select optgroup{background-color:#14232A;color:#EAF4F6}
+select option:disabled{color:#98A2B3}
+/* ---- Замонавий календарь ---- */
+input[type=date].inp,input[type=month].inp{cursor:pointer;padding-right:36px;font-variant-numeric:tabular-nums;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230F6E80' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M16 3v4M8 3v4M3 10h18'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px}
+body[data-theme=dark] input[type=date].inp,body[data-theme=dark] input[type=month].inp{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%237FE0EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M16 3v4M8 3v4M3 10h18'/%3E%3C/svg%3E")}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=month]::-webkit-calendar-picker-indicator{display:none}
+input[type=date].dp-on,input[type=month].dp-on{outline:2px solid rgba(15,110,128,.45);outline-offset:-1px}
+.dp{position:fixed;z-index:1000;width:304px;padding:14px;border-radius:22px;background:rgba(255,255,255,.94);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border:1px solid rgba(255,255,255,.85);box-shadow:0 24px 60px rgba(15,60,75,.22),0 2px 6px rgba(15,23,32,.08),inset 0 1px 0 #fff;color:var(--ink);font-family:'Onest',Inter,system-ui,sans-serif;animation:dpIn .24s cubic-bezier(.22,1.4,.36,1);transform-origin:top center;user-select:none;-webkit-user-select:none}
+body[data-theme=dark] .dp{background:rgba(18,32,39,.97);border-color:var(--line);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+@keyframes dpIn{from{opacity:0;transform:translateY(-8px) scale(.96)}to{opacity:1;transform:none}}
+.dp-h{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+.dp-t{flex:1;height:36px;border:0;background:transparent;border-radius:12px;font:inherit;font-weight:650;font-size:15.5px;letter-spacing:-.01em;cursor:pointer;color:var(--ink);display:flex;align-items:center;justify-content:center;gap:6px}
+.dp-t:hover{background:rgba(15,110,128,.08)}
+.dp-t svg{opacity:.55;transition:transform .2s}.dp-t.up svg{transform:rotate(180deg)}
+.dp-n{width:36px;height:36px;flex:none;border-radius:50%;border:0;background:rgba(15,110,128,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--a1);transition:background-color .2s,color .2s,transform .25s cubic-bezier(.22,1.4,.36,1)}
+.dp-n:hover{background:var(--a1);color:var(--a1ink)}.dp-n:active{transform:scale(.9)}
+body[data-theme=dark] .dp-n{background:rgba(127,224,238,.10)}
+.dp-w,.dp-g{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.dp-w{margin-bottom:2px}
+.dp-w span{text-align:center;font-size:11px;font-weight:600;color:var(--muted);padding:6px 0 4px;letter-spacing:.03em}
+.dp-w span:nth-child(n+6){color:var(--neg);opacity:.8}
+.dp-d{height:38px;border:0;border-radius:12px;background:transparent;cursor:pointer;font:inherit;font-size:14px;font-variant-numeric:tabular-nums;color:var(--ink);transition:background-color .15s,transform .2s cubic-bezier(.22,1.4,.36,1),box-shadow .2s}
+.dp-d:hover{background:rgba(15,110,128,.10)}
+body[data-theme=dark] .dp-d:hover{background:rgba(127,224,238,.12)}
+.dp-d.we{color:var(--neg)}
+.dp-d.out{opacity:.38}
+.dp-d.td{box-shadow:inset 0 0 0 1.5px var(--a1);font-weight:650;color:var(--a1)}
+.dp-d.sel,.dp-d.sel:hover{background:var(--a1);color:var(--a1ink);font-weight:650;background-image:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0) 55%);box-shadow:0 6px 16px rgba(15,110,128,.35)}
+.dp-d:disabled{opacity:.2;cursor:default;background:transparent}
+.dp-d:active:not(:disabled){transform:scale(.9)}
+.dp-g.mo{grid-template-columns:repeat(3,1fr);gap:6px;padding-top:4px}.dp-g.mo .dp-d{height:46px;font-size:14px}
+.dp-f{display:flex;gap:8px;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.dp-f button{height:34px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.7);cursor:pointer;font:inherit;font-weight:550;font-size:13px;color:var(--ink);transition:transform .2s cubic-bezier(.22,1.4,.36,1)}
+body[data-theme=dark] .dp-f button{background:rgba(255,255,255,.06)}
+.dp-f button:active{transform:scale(.94)}
+.dp-f .dp-tod,body[data-theme=dark] .dp-f .dp-tod{background:var(--a1);color:var(--a1ink);border-color:transparent;box-shadow:0 4px 12px rgba(15,110,128,.28)}
+.dp-f .dp-clr{color:var(--neg)}
+.dp-scrim{position:fixed;inset:0;z-index:999;background:rgba(10,40,50,.32);animation:dpFade .2s ease}
+@keyframes dpFade{from{opacity:0}}
+.dp.dp-sheet{left:0!important;right:0;top:auto!important;bottom:0;width:auto;max-width:480px;margin:0 auto;border-radius:24px 24px 0 0;padding:10px 16px calc(16px + env(safe-area-inset-bottom));animation:dpUp .32s cubic-bezier(.22,1.2,.36,1)}
+.dp-sheet::before{content:'';display:block;width:40px;height:4px;border-radius:4px;background:var(--line);margin:0 auto 10px}
+.dp-sheet .dp-d{height:44px;font-size:15px}.dp-sheet .dp-g.mo .dp-d{height:52px}
+@keyframes dpUp{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.dp,.dp.dp-sheet,.dp-scrim{animation:none}}
 </style>
 </head>
 <body>
@@ -1380,7 +1427,7 @@ function bindDlv(f, upd){
 function payBox(f){
   var h='<div class="row2" style="margin-top:14px"><div><div class="grid-f">';
   ['naqd','plastik','click','perech'].forEach(function(k){ h+='<label class="f">'+METHODS[k]+'<input class="inp money" inputmode="numeric" data-pay="'+k+'" value="'+(f[k]!==''?fmt(f[k]):'')+'" placeholder="0"></label>'; });
-  h+='</div><label class="f" style="margin-top:12px">Қарз бўлса — тўлов муддати<input class="inp" type="date" id="fDue" value="'+esc(f.due||'')+'"></label>'+(f.multi?'<label class="f" style="margin-top:12px">Пул қайси филиалга тушди<select class="inp" id="fPayBr">'+branchOpts(f.payBranch||f.branch,['f1','f2'])+'</select></label>':'')+'<label class="f" style="margin-top:12px">Изоҳ<input class="inp" id="fNote" value="'+esc(f.note)+'"></label></div>';
+  h+='</div><label class="f" style="margin-top:12px">Қарз бўлса — тўлов муддати<input class="inp" type="date" id="fDue" data-clearable value="'+esc(f.due||'')+'"></label>'+(f.multi?'<label class="f" style="margin-top:12px">Пул қайси филиалга тушди<select class="inp" id="fPayBr">'+branchOpts(f.payBranch||f.branch,['f1','f2'])+'</select></label>':'')+'<label class="f" style="margin-top:12px">Изоҳ<input class="inp" id="fNote" value="'+esc(f.note)+'"></label></div>';
   h+='<div class="totals card" style="background:var(--soft)"><div class="totrow"><span>Товарлар</span><span id="tGross">0</span></div><div class="totrow" style="align-items:center"><span>Чегирма</span><input class="inp money" id="fDisc" inputmode="numeric" placeholder="0" style="width:140px;height:34px" value="'+(f.disc?fmt(f.disc):'')+'"></div><div class="totrow" id="tDlvRow" style="display:none"><span>Доставка</span><span id="tDlv">0</span></div><div class="chips" style="justify-content:flex-end"><span class="mut sm" style="align-self:center">Яхлитлаш:</span><button type="button" class="chip" data-rnd="1000">1 минг</button><button type="button" class="chip" data-rnd="5000">5 минг</button><button type="button" class="chip" data-rnd="10000">10 минг</button><button type="button" class="chip" data-rnd="0">йўқ</button></div><div class="totrow"><span>Жами</span><span class="big" id="tTotal">0</span></div><div class="totrow" id="tOtkRow" style="display:none"><span>Откат <span class="mut sm">(мижозга кўринмайди)</span></span><span id="tOtk" class="neg">0</span></div><div class="totrow"><span>Тўланди</span><span id="tPaid">0</span></div><div class="totrow"><span>Қарзга</span><b id="tQarz">0</b></div>'+'<div class="ctrl"><button type="button" class="btn" id="allCash">Ҳаммаси нақд</button><button type="button" class="btn pri" id="saveBtn" style="flex:1">'+(f.editId?'Ўзгаришни сақлаш':'Сотувни сақлаш')+'</button></div></div></div>';
   return h;
 }
@@ -2800,6 +2847,89 @@ document.addEventListener('keydown', function(e){ if(e.key==='Escape' && documen
   var t=null; try{ t=localStorage.getItem('nim_token'); }catch(_){}
   if(!t){ $('lLogin').focus(); return; }
   call('me', t).then(function(){ S.token=t; start(); }).catch(function(){ toLogin(''); });
+})();
+/* ---- Замонавий календарь: барча input[type=date|month] учун ---- */
+(function(){
+  var TX={
+    uz:{m:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],w:['Ду','Се','Чо','Па','Жу','Ша','Як'],tod:'Бугун',tom:'Шу ой',clr:'Тозалаш'},
+    ru:{m:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'],w:['Пн','Вт','Ср','Чт','Пт','Сб','Вс'],tod:'Сегодня',tom:'Этот месяц',clr:'Очистить'},
+    kaa:{m:['Yanvar','Fevral','Mart','Aprel','May','Iyun','Iyul','Avgust','Sentyabr','Oktyabr','Noyabr','Dekabr'],w:['Dú','Si','Sá','Pi','Ju','Sh','Ek'],tod:'Búgin',tom:'Usı ay',clr:'Tazalaw'}
+  }, L=TX[typeof LANG!=='undefined'?LANG:'uz']||TX.uz;
+  var pop=null, scrim=null, cur=null, V=null, clearable=false, tsx=0, tsy=0;
+  var CH='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
+  var CR='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
+  var CD='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+  function pad(n){ return (n<10?'0':'')+n; }
+  function iso(y,m,d){ return y+'-'+pad(m+1)+(d?'-'+pad(d):''); }
+  function nowParts(){ var t=new Date(); return {y:t.getFullYear(), m:t.getMonth(), d:t.getDate()}; }
+  function ok(v){ var mn=cur.min, mx=cur.max; if(V.kind==='month'){ mn=mn&&mn.slice(0,7); mx=mx&&mx.slice(0,7); } return !(mn&&v<mn)&&!(mx&&v>mx); }
+  function close(){
+    if(pop){ pop.remove(); pop=null; } if(scrim){ scrim.remove(); scrim=null; }
+    if(cur) cur.classList.remove('dp-on'); cur=null;
+    document.removeEventListener('keydown', onKey, true); window.removeEventListener('resize', close);
+  }
+  function set(v){ var el=cur; close(); if(el.value!==v){ el.value=v; el.dispatchEvent(new Event('input',{bubbles:true})); el.dispatchEvent(new Event('change',{bubbles:true})); } }
+  function render(){
+    var h='<div class="dp-h"><button type="button" class="dp-n" data-nav="-1" aria-label="‹">'+CH+'</button>';
+    if(V.view==='d') h+='<button type="button" class="dp-t" data-sw="m">'+L.m[V.m]+' '+V.y+CD+'</button>';
+    else h+='<button type="button" class="dp-t'+(V.kind==='date'?' up':'')+'"'+(V.kind==='date'?' data-sw="d"':'')+'>'+V.y+(V.kind==='date'?CD:'')+'</button>';
+    h+='<button type="button" class="dp-n" data-nav="1" aria-label="›">'+CR+'</button></div>';
+    var t=nowParts(), sel=cur.value;
+    if(V.view==='d'){
+      h+='<div class="dp-w">'+L.w.map(function(w){ return '<span>'+w+'</span>'; }).join('')+'</div><div class="dp-g">';
+      var first=new Date(V.y,V.m,1), off=(first.getDay()+6)%7, start=new Date(V.y,V.m,1-off);
+      for(var i=0;i<42;i++){
+        var d=new Date(start.getFullYear(),start.getMonth(),start.getDate()+i), v=iso(d.getFullYear(),d.getMonth(),d.getDate()), c='dp-d';
+        if(d.getMonth()!==V.m) c+=' out'; if(i%7>=5) c+=' we';
+        if(d.getFullYear()===t.y&&d.getMonth()===t.m&&d.getDate()===t.d) c+=' td'; if(v===sel) c+=' sel';
+        h+='<button type="button" class="'+c+'" data-v="'+v+'"'+(ok(v)?'':' disabled')+'>'+d.getDate()+'</button>';
+      }
+      h+='</div>';
+    } else {
+      h+='<div class="dp-g mo">';
+      for(var k=0;k<12;k++){ var mv=iso(V.y,k), mc='dp-d'; if(V.y===t.y&&k===t.m) mc+=' td'; if(sel&&sel.slice(0,7)===mv) mc+=' sel';
+        h+='<button type="button" class="'+mc+'" data-mv="'+mv+'"'+(ok(V.kind==='month'?mv:mv+'-31')||ok(V.kind==='month'?mv:mv+'-01')?'':' disabled')+'>'+L.m[k]+'</button>'; }
+      h+='</div>';
+    }
+    h+='<div class="dp-f">'+(clearable?'<button type="button" class="dp-clr" data-clr="1">'+L.clr+'</button>':'<span></span>')+'<button type="button" class="dp-tod" data-tod="1">'+(V.kind==='month'?L.tom:L.tod)+'</button></div>';
+    pop.innerHTML=h;
+  }
+  function place(){
+    if(!pop||!cur) return;
+    if(window.innerWidth<600){ pop.classList.add('dp-sheet'); return; }
+    var r=cur.getBoundingClientRect(), w=pop.offsetWidth, ht=pop.offsetHeight, top=r.bottom+8;
+    if(top+ht>window.innerHeight-8 && r.top-ht-8>8) top=r.top-ht-8;
+    pop.style.top=Math.max(8,top)+'px'; pop.style.left=Math.min(Math.max(8,r.left), window.innerWidth-w-8)+'px';
+  }
+  function open(el){
+    close(); cur=el; var kind=el.type==='month'?'month':'date', v=el.value, t=nowParts();
+    V={kind:kind, view:kind==='month'?'m':'d', y:v?+v.slice(0,4):t.y, m:v?+v.slice(5,7)-1:t.m};
+    clearable=!v||el.hasAttribute('data-clearable');
+    if(window.innerWidth<600){ scrim=document.createElement('div'); scrim.className='dp-scrim'; scrim.onclick=close; document.body.appendChild(scrim); }
+    pop=document.createElement('div'); pop.className='dp'; pop.setAttribute('data-noi18n',''); pop.setAttribute('role','dialog');
+    pop.addEventListener('click', onPop); document.body.appendChild(pop);
+    el.classList.add('dp-on'); render(); place();
+    document.addEventListener('keydown', onKey, true); window.addEventListener('resize', close);
+  }
+  function onPop(e){
+    e.stopPropagation(); var b=e.target.closest('button'); if(!b||b.disabled) return;
+    if(b.dataset.nav){ var n=+b.dataset.nav; if(V.view==='d'){ V.m+=n; if(V.m<0){ V.m=11; V.y--; } if(V.m>11){ V.m=0; V.y++; } } else V.y+=n; render(); return; }
+    if(b.dataset.sw){ V.view=b.dataset.sw; render(); return; }
+    if(b.dataset.v){ set(b.dataset.v); return; }
+    if(b.dataset.mv){ if(V.kind==='month'){ set(b.dataset.mv); return; } V.m=+b.dataset.mv.slice(5,7)-1; V.view='d'; render(); return; }
+    if(b.dataset.tod){ var t=nowParts(), tv=V.kind==='month'?iso(t.y,t.m):iso(t.y,t.m,t.d); if(ok(tv)) set(tv); else { V.y=t.y; V.m=t.m; render(); } return; }
+    if(b.dataset.clr){ set(''); }
+  }
+  function onKey(e){ if(e.key==='Escape'&&pop){ e.stopPropagation(); e.preventDefault(); var el=cur; close(); if(el) el.focus(); } }
+  function target(e){ var el=e.target&&e.target.closest&&e.target.closest('input[type=date],input[type=month]'); return el&&!el.disabled&&!el.readOnly?el:null; }
+  document.addEventListener('click', function(e){
+    var el=target(e);
+    if(el){ e.preventDefault(); if(cur===el){ close(); return; } open(el); return; }
+    if(pop&&!pop.contains(e.target)) close();
+  }, true);
+  document.addEventListener('touchstart', function(e){ var p=e.touches[0]; tsx=p.clientX; tsy=p.clientY; }, {passive:true, capture:true});
+  document.addEventListener('touchend', function(e){ var el=target(e); if(!el) return; var p=e.changedTouches[0]; if(Math.abs(p.clientX-tsx)>10||Math.abs(p.clientY-tsy)>10) return; e.preventDefault(); if(document.activeElement&&document.activeElement.blur) document.activeElement.blur(); open(el); }, {passive:false, capture:true});
+  document.addEventListener('scroll', function(e){ if(pop&&!pop.contains(e.target)&&!pop.classList.contains('dp-sheet')) place(); }, true);
 })();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
