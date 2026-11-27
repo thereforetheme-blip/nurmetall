@@ -1419,6 +1419,7 @@ function drawSaleForm(){
   $('saveBtn').onclick=function(){
     var b=this, items, items2=[];
     try{ if(f.multi){ var e1=f.lines.some(function(l){ return l.code||(l.raw||'').trim(); }); items=e1?linesPayload(f):[]; var e2=f.b2.lines.some(function(l){ return l.code||(l.raw||'').trim(); }); items2=e2?linesPayload(f.b2):[]; if(!items.length&&!items2.length) throw new Error('Камида битта товар қўшинг'); } else items=linesPayload(f); }catch(e){ return toast(errText(e),true); }
+    if(f.otkOn){ if(!String(f.agent||'').trim()) return toast('Откат кимга берилишини ёзинг (откатчи)',true); if(!(formOtk(f)>0)) return toast('«Откат бор» белгиланган, лекин откат 0. Товар остидаги «Ҳақиқий нарх»ни чекдаги нархдан паст қилиб ёзинг',true); }
     busy(b,true);
     var payload={due:f.due||'', date:f.date, branch:f.branch, clientName:f.client, seller:f.seller, agent:f.otkOn?f.agent:'', items:items, disc:pm(f.disc), dlv:(f.dlv&&f.dlv.on)?f.dlv:null, naqd:pm(f.naqd), plastik:pm(f.plastik), click:pm(f.click), perech:pm(f.perech), note:f.note};
     if(f.multi){ payload.parts=[{branch:f.branch, items:items},{branch:f.b2.branch, items:items2}]; payload.payBranch=f.payBranch||f.branch; }
